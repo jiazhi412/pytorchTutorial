@@ -1,4 +1,4 @@
-
+#%%
 import torch
 # The autograd package provides automatic differentiation 
 # for all operations on Tensors
@@ -45,9 +45,12 @@ for _ in range(10):
 print(y)
 print(y.shape)
 
-v = torch.tensor([0.1, 1.0, 0.0001], dtype=torch.float32)
+v = torch.tensor([1, 1.0, 1], dtype=torch.float32)
 y.backward(v)
 print(x.grad)
+
+
+#%%
 
 # -------------
 # Stop a tensor from tracking history:
@@ -79,15 +82,17 @@ print(a.requires_grad)
 with torch.no_grad():
     print((x ** 2).requires_grad)
 
+#%%
 # -------------
 # backward() accumulates the gradient for this tensor into .grad attribute.
 # !!! We need to be careful during optimization !!!
 # Use .zero_() to empty the gradients before a new optimization step!
+# import torch
 weights = torch.ones(4, requires_grad=True)
 
 for epoch in range(3):
     # just a dummy example
-    model_output = (weights*3).sum()
+    model_output = (weights*4).sum()
     model_output.backward()
     
     print(weights.grad)
@@ -102,8 +107,11 @@ for epoch in range(3):
 print(weights)
 print(model_output)
 
+#%%k
 # Optimizer has zero_grad() method
 # optimizer = torch.optim.SGD([weights], lr=0.1)
 # During training:
 # optimizer.step()
 # optimizer.zero_grad()
+
+# %%

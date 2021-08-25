@@ -9,7 +9,7 @@ import sys
 import torch.nn.functional as F
 from torch.utils.tensorboard import SummaryWriter
 # default `log_dir` is "runs" - we'll be more specific here
-writer = SummaryWriter('runs/mnist1')
+writer = SummaryWriter('runs/mnist2')
 ###################################################
 
 # Device configuration
@@ -21,7 +21,7 @@ hidden_size = 500
 num_classes = 10
 num_epochs = 1
 batch_size = 64
-learning_rate = 0.001
+learning_rate = 0.01
 
 # MNIST dataset 
 train_dataset = torchvision.datasets.MNIST(root='./data', 

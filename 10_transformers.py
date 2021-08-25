@@ -48,7 +48,8 @@ class WineDataset(Dataset):
 
         # note that we do not convert to tensor here
         self.x_data = xy[:, 1:]
-        self.y_data = xy[:, [0]]
+        self.y_data = xy[:, [0]] # shape: 178 * 1
+        # s = xy[:,0] # shape: 178
 
         self.transform = transform
 

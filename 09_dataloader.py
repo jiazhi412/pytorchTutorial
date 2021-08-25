@@ -15,6 +15,7 @@ for epoch in range(num_epochs):
         batch_x, batch_y = ...
 '''
 
+
 # epoch = one forward and backward pass of ALL training samples
 # batch_size = number of training samples used in one forward/backward pass
 # number of iterations = number of passes, each pass (forward+backward) using [batch_size] number of sampes

@@ -11,13 +11,16 @@ Y = torch.tensor([2, 4, 6, 8], dtype=torch.float32)
 
 w = torch.tensor(0.0, dtype=torch.float32, requires_grad=True)
 
+
 # model output
 def forward(x):
     return w * x
 
+
 # loss = MSE
 def loss(y, y_pred):
     return ((y_pred - y)**2).mean()
+
 
 print(f'Prediction before training: f(5) = {forward(5).item():.3f}')
 
@@ -36,7 +39,7 @@ for epoch in range(n_iters):
     l.backward()
 
     # update weights
-    #w.data = w.data - learning_rate * w.grad
+    # w.data = w.data - learning_rate * w.grad
     with torch.no_grad():
         w -= learning_rate * w.grad
     
